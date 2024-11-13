@@ -16,7 +16,7 @@ public class OrderController : ControllerBase
     }
 
     // Create a GET endpoint that just calls the OrderService's PlaceOrder method
-    [HttpGet(Name = "PlaceOrder")]
+    [HttpGet("place", Name = "PlaceOrder")]
     public async Task<ActionResult> PlaceOrder()
     {
       try
