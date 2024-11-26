@@ -13,6 +13,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IOrderService, OrderService>();
 
+builder.WebHost.ConfigureKestrel(options =>
+{
+    var kestrelConfig = builder.Configuration.GetSection("Kestrel");
+    options.Configure(kestrelConfig);
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

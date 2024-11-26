@@ -12,6 +12,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddSingleton<IInventoryService, InventoryService>();
 
+builder.WebHost.ConfigureKestrel(options =>
+{
+    var kestrelConfig = builder.Configuration.GetSection("Kestrel");
+    options.Configure(kestrelConfig);
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -26,5 +32,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+
 
 app.Run();
