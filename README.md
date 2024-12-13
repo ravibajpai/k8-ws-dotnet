@@ -1,3 +1,21 @@
+# Build
+## Inventory Service
+```sh
+cd InventoryService/
+dotnet build
+dotnet run
+```
+
+## Order Service
+```sh
+cd OrderService/
+dotnet build
+dotnet run
+```
+
+
+
+
 
 ## **K8 Coffee Shop Overview**  
 **Goal:**  
