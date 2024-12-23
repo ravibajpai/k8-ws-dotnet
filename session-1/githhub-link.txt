@@ -5,7 +5,7 @@ https://hub.docker.com/r/rpb001/inventory
 docker pull rpb001/inventory
 docker pull rpb001/order
 
-docker run -d -p 81:5100 rpb001/inventory
+docker run -d -p 5100:5100 rpb001/inventory
 docker run -d -p 80:5000 rpb001/order
 
 https://musical-funicular-r6v6975657qf559v-81.app.github.dev/inventory/stock
