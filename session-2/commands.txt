@@ -10,3 +10,7 @@ docker network ls
 
 docker run -d --network my-custom-network --name inventory -p 5100:5100 rpb001/inventory
 docker run -d --network my-custom-network --name order -e INVENTORY_URL=http://inventory:5100 -p 80:5000 rpb001/order
+
+
+https://musical-funicular-r6v6975657qf559v-5100.app.github.dev/inventory/stock
+https://musical-funicular-r6v6975657qf559v-80.app.github.dev/order/place?coffeeType=cappuccino&quantity=1
