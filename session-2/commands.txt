@@ -1,0 +1,12 @@
+docker login
+docker build -t rpb001/order:latest .
+docker push rpb001/order:latest
+
+docker pull rpb001/inventory
+docker pull rpb001/order
+
+docker network create my-custom-network
+docker network ls
+
+docker run -d --network my-custom-network --name inventory -p 5100:5100 rpb001/inventory
+docker run -d --network my-custom-network --name order -e INVENTORY_URL=http://inventory:5100 -p 80:5000 rpb001/order
