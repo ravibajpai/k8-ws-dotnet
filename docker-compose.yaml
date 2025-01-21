@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  inventory:
+    image: rpb001/inventory
+    ports:
+      - "8082:5100"
+    networks:
+      - common_network
+
+  order:
+    image: rpb001/order
+    ports:
+      - "8083:5000"
+    environment:
+      INVENTORY_URL: "http://inventory:5100"
+    networks:
+      - common_network
+
+networks:
+  common_network:
+    driver: bridge

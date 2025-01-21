@@ -1,0 +1,2 @@
+https://musical-funicular-r6v6975657qf559v-8083.app.github.dev/order/place?coffeeType=cappuccino&quantity=1
+https://musical-funicular-r6v6975657qf559v-8082.app.github.dev/inventory/stock
