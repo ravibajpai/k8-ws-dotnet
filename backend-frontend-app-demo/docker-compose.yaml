@@ -1,0 +1,33 @@
+name: backend-frontend-app-demo
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@db:5432/demo # database url
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    container_name: demo_db
+    restart: unless-stopped # restart the container unless it is stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: demo
+    volumes:
+      - db_data:/var/lib/postgresql/data # persist the data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro # initialize the database
+
+volumes:
+  db_data:
