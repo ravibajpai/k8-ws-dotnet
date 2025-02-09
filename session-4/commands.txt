@@ -1,0 +1,18 @@
+# for installing minicube
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+chmod +x minikube
+sudo mv minikube /usr/local/bin/
+minikube version
+minikube start --driver=docker
+minikube status
+kubectl get nodes
+
+#start nginx service 
+kubectl apply -f node.yaml
+ 
+kubectl port-forward svc/nginx-nodeport-service 8080:80
+ 
+## start minicube before running these
+ kubectl apply -f deployment.yml
+kubectl apply -f service.yml
+ kubectl port-forward svc/inventory-service 30007:5100
