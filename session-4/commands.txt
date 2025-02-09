@@ -16,3 +16,11 @@ kubectl port-forward svc/nginx-nodeport-service 8080:80
  kubectl apply -f deployment.yml
 kubectl apply -f service.yml
  kubectl port-forward svc/inventory-service 30007:5100
+
+  kubectl port-forward svc/order-service 30009:5000
+
+
+https://scaling-space-goldfish-7545q7j5qxqfpj9g-30007.app.github.dev/inventory/stock
+
+  kubectl delete  -f deployment.yml 
+  kubectl delete  -f service.yml
