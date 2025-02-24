@@ -1,0 +1,8 @@
+kubectl create namespace prod
+kubectl create namespace staging
+kubectl create namespace dev
+
+
+kubectl exec -it <pod-name> -n dev -- printenv | grep ESPRESSO
+kubectl exec -it <pod-name> -n dev -- printenv | grep MILK
+kubectl exec -it <pod-name> -n dev -- printenv | grep HOT_WATER

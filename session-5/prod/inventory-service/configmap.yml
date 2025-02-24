@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coffee-config
+  namespace: prod  # Change this based on your environment (prod/staging/dev)
+data:
+  ESPRESSO_SHOT_QUANTITY: "10"
+  MILK_FOAM_QUANTITY: "60"

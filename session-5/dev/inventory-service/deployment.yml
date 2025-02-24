@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory
+  namespace: dev  
+spec:
+  selector:
+    matchLabels:
+      app: inventory
+  template:
+    metadata:
+      labels:
+        app: inventory
+    spec:
+      containers:
+        - name: inventory
+          image: rpb001/inventory  # Replace with your actual image
+          ports:
+            - containerPort: 5100
+          env:
+            - name: ESPRESSO_SHOT_QUANTITY
+              valueFrom:
+                configMapKeyRef:
+                  name: coffee-config
+                  key: ESPRESSO_SHOT_QUANTITY
+
+            - name: MILK_FOAM_QUANTITY
+              valueFrom:
+                configMapKeyRef:
+                  name: coffee-config
+                  key: MILK_FOAM_QUANTITY
