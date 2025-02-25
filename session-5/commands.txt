@@ -1,7 +1,34 @@
+# for installing minicube
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+chmod +x minikube
+sudo mv minikube /usr/local/bin/
+minikube version
+minikube start --driver=docker
+minikube status
+kubectl get nodes
+
+kubectl get services -n dev
+kubectl get pods -n dev
+kubectl apply -f configmap.yml -n dev
+ kubectl apply -f deployment.yml -n dev
+kubectl apply -f service.yml -n dev
+
+kubectl apply -f configmap.yml -n prod
+ kubectl apply -f deployment.yml -n prod
+kubectl apply -f service.yml -n prod
+
+ kubectl port-forward svc/inventory-service 30007:5100 -n dev
+ kubectl port-forward svc/inventory-service 30008:5100 -n prod
+
+  kubectl port-forward svc/order-service 30009:5000
+# for deleting service 
+kubectl delete service inventory-service
+
 kubectl create namespace prod
 kubectl create namespace staging
 kubectl create namespace dev
 
+kubectl describe pod inventory-56c7588659-fvkbh  -n dev
 
 kubectl exec -it <pod-name> -n dev -- printenv | grep ESPRESSO
 kubectl exec -it <pod-name> -n dev -- printenv | grep MILK
