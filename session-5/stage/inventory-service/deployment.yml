@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: inventory
-  namespace: stage  
+  namespace: staging  
 spec:
   selector:
     matchLabels:

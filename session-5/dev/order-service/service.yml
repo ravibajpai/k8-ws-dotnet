@@ -11,4 +11,4 @@ spec:
     - protocol: TCP
       port: 5000  # External service port
       targetPort: 5000  # Port inside the container
-      nodePort: 30008
+      nodePort: 30010

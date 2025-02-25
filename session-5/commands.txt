@@ -19,15 +19,15 @@ kubectl apply -f configmap.yml -n prod
  kubectl apply -f deployment.yml -n prod
 kubectl apply -f service.yml -n prod
 
-kubectl apply -f configmap.yml -n stage
- kubectl apply -f deployment.yml -n stage
-kubectl apply -f service.yml -n stage
+kubectl apply -f configmap.yml -n staging
+ kubectl apply -f deployment.yml -n staging
+kubectl apply -f service.yml -n staging
 
  kubectl port-forward svc/inventory-service 30007:5100 -n dev
  kubectl port-forward svc/inventory-service 30008:5100 -n prod
 
  kubectl port-forward svc/order-service 30007:5100 -n dev
- kubectl port-forward svc/order-service 30009:5000 -n prod
+ kubectl port-forward svc/order-service 30010:5000 -n prod
 
 # for deleting service 
 kubectl delete service inventory-service
@@ -40,7 +40,3 @@ kubectl describe pod inventory-56c7588659-fvkbh  -n dev
 https://musical-funicular-r6v6975657qf559v-5100.app.github.dev/inventory/stock
 https://scaling-space-goldfish-7545q7j5qxqfpj9g-30009.app.github.dev/order/place?coffeeType=cappuccino&quantity=1
 https://scaling-space-goldfish-7545q7j5qxqfpj9g-30009.app.github.dev/order/place?coffeeType=cappuccino&quantity=1
-
-kubectl exec -it <pod-name> -n dev -- printenv | grep ESPRESSO
-kubectl exec -it <pod-name> -n dev -- printenv | grep MILK
-kubectl exec -it <pod-name> -n dev -- printenv | grep HOT_WATER
