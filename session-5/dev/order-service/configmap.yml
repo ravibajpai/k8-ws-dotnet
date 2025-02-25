@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: inventory-config
+  namespace: dev
+data:
+  INVENTORY_SERVICE_URL: "http://inventory-service:5100"

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order
+  namespace: stage
+spec:
+  selector:
+    matchLabels:
+      app: order
+  template:
+    metadata:
+      labels:
+        app: order
+    spec:
+      containers:
+        - name: order
+          image: rpb001/order  # Replace with your actual image name
+          ports:
+            - containerPort: 5100
+          env:
+            - name: INVENTORY_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: inventory-config
+                  key: INVENTORY_SERVICE_URL
