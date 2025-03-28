@@ -19,3 +19,8 @@ spec:
           env:
             - name: INVENTORY_URL  # 👈 Environment variable name
               value: "http://inventory-service:5100"  # 👈 Hardcoded value
+          resources:
+              requests:
+                cpu: "1m"
+              limits:
+                cpu: "200m"

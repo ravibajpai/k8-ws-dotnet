@@ -16,3 +16,8 @@ spec:
           image: rpb001/inventory  # Replace with your actual image name
           ports:
             - containerPort: 5100
+          resources:
+              requests:
+                cpu: "1m"
+              limits:
+                cpu: "200m"
