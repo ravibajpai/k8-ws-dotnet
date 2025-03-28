@@ -17,8 +17,8 @@ spec:
           ports:
             - containerPort: 5100
           env:
-            - name: INVENTORY_URL  # 👈 Environment variable name
-              value: "http://inventory-service:5100"  # 👈 Hardcoded value
+            - name: INVENTORY_URL  
+              value: "http://inventory-service:5100"
           resources:
               requests:
                 cpu: "1m"
