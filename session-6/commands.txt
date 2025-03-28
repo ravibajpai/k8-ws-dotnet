@@ -24,3 +24,10 @@ https://scaling-space-goldfish-7545q7j5qxqfpj9g-30007.app.github.dev/inventory/s
 
   kubectl delete  -f deployment.yml 
   kubectl delete  -f service.yml
+
+   kubectl apply -f ingres.yml
+
+
+  kubectl port-forward --namespace ingress-nginx service/ingress-nginx-controller 8080:80
+
+  https://scaling-space-goldfish-7545q7j5qxqfpj9g-8080.app.github.dev/order/place?coffeeType=cappuccino&quantity=1
